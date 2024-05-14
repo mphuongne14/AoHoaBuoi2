@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+// Hàm kiểm tra số chính phương
+int isPerfectSquare(int num) {
+    int sqrtNum = (int)sqrt(num);
+    return (sqrtNum * sqrtNum == num);
+}
+// Hàm đếm và in ra các số chính phương nhỏ hơn n
+void countPer(int n) {
+    int count = 0;
+    printf("\nCac so chinh phuong nho hon %d la:\n", n);
+    for (int i = n - 1; i > 0; i--) {
+        if (isPerfectSquare(i)) {
+            printf("%d ", i);
+            count++;
+        }
+    }
+    
+    printf("\nTong cong co %d so chinh phuong.\n", count);
+}
+
+int main() {
+    int n;
+    printf("Nhap vao so nguyen duong n: ");
+    scanf("%d", &n);
+
+    if (n > 0) {
+        countPer(n);
+    } else {
+        printf("Vui long nhap so nguyen duong lon hon 0.\n");
+    }
+
+    return 0;
+}
